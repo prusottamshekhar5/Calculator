@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neumorphism Light Calculator — Normal & Scientific</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="calculator" id="calculator" aria-label="Neumorphic Calculator">
+    <!-- Top Header & Mode Switcher -->
+    <header class="calc-header">
+      <div class="brand">
+        <span class="status-dot"></span>
+        <span>NEU • CALC</span>
+      </div>
+
+      <!-- Segmented Mode Pill -->
+      <div class="mode-switch" role="tablist" aria-label="Calculator Mode">
+        <button class="mode-btn active" id="btnNormal" role="tab" aria-selected="true">Normal</button>
+        <button class="mode-btn" id="btnScientific" role="tab" aria-selected="false">Scientific</button>
+      </div>
+
+      <button class="sound-toggle active" id="soundToggle" title="Toggle Tactile Sound" aria-label="Toggle Sound">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path id="soundWaves" d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Carved Inset Display Screen -->
+    <section class="display-screen" aria-live="polite">
+      <div class="display-top-row">
+        <span class="angle-badge" id="angleBadge">DEG</span>
+        <div class="expression" id="expression"></div>
+      </div>
+      <div class="result" id="result">0</div>
+    </section>
+
+    <!-- Collapsible Scientific Drawer -->
+    <section class="sci-keypad" id="sciKeypad" aria-hidden="true">
+      <button class="key sci-key" data-sci="angle" id="angleBtn">DEG</button>
+      <button class="key sci-key" data-sci="sin">sin</button>
+      <button class="key sci-key" data-sci="cos">cos</button>
+      <button class="key sci-key" data-sci="tan">tan</button>
+
+      <button class="key sci-key" data-sci="ln">ln</button>
+      <button class="key sci-key" data-sci="log">log</button>
+      <button class="key sci-key" data-sci="sqrt">√x</button>
+      <button class="key sci-key" data-sci="cbrt">∛x</button>
+
+      <button class="key sci-key" data-sci="sq">x²</button>
+      <button class="key sci-key operator" data-action="operator" data-value="^" data-key="^">xʸ</button>
+      <button class="key sci-key" data-sci="inv">1/x</button>
+      <button class="key sci-key" data-sci="fact">n!</button>
+
+      <button class="key sci-key" data-sci="pi">π</button>
+      <button class="key sci-key" data-sci="e">e</button>
+      <button class="key sci-key" data-sci="neg">±</button>
+      <button class="key sci-key" data-sci="abs">|x|</button>
+    </section>
+
+    <!-- Standard Keypad -->
+    <section class="keypad" id="mainKeypad">
+      <button class="key fn fn-clear" data-action="clear" data-key="Escape">AC</button>
+      <button class="key fn" data-action="delete" data-key="Backspace">DEL</button>
+      <button class="key fn" data-action="percent" data-key="%">%</button>
+      <button class="key operator" data-action="operator" data-value="/" data-key="/">÷</button>
+
+      <button class="key" data-number="7" data-key="7">7</button>
+      <button class="key" data-number="8" data-key="8">8</button>
+      <button class="key" data-number="9" data-key="9">9</button>
+      <button class="key operator" data-action="operator" data-value="*" data-key="*">×</button>
+
+      <button class="key" data-number="4" data-key="4">4</button>
+      <button class="key" data-number="5" data-key="5">5</button>
+      <button class="key" data-number="6" data-key="6">6</button>
+      <button class="key operator" data-action="operator" data-value="-" data-key="-">−</button>
+
+      <button class="key" data-number="1" data-key="1">1</button>
+      <button class="key" data-number="2" data-key="2">2</button>
+      <button class="key" data-number="3" data-key="3">3</button>
+      <button class="key operator" data-action="operator" data-value="+" data-key="+">+</button>
+
+      <button class="key span-2" data-number="0" data-key="0">0</button>
+      <button class="key" data-action="decimal" data-key=".">.</button>
+      <button class="key equals" data-action="calculate" data-key="Enter">=</button>
+    </section>
+  </main>
+
+  <p class="hint">Switch between Normal & Scientific modes above • Keyboard supported</p>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
